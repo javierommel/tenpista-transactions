@@ -38,12 +38,12 @@ services:
     build:
       context: ./tenpista-transactions-app
       dockerfile: Dockerfile
+      args:
+        VITE_URL_BACKEND: ${VITE_URL_BACKEND}
     ports:
       - "80:80"
     env_file:
       - .env
-    environment:
-      VITE_URL_BACKEND: ${VITE_URL_BACKEND}
     depends_on:
       - backend
     restart: unless-stopped
